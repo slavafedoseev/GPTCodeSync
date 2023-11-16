@@ -3,6 +3,7 @@
 ## Introduction
 
 Welcome to **GPTCodeSync**, a revolutionary tool crafted by [Slava Fedoseev](https://www.fb.com/slfed) to seamlessly bridge your coding projects with the power of GPT models. This tool is dedicated to developers worldwide, offering an enhanced experience in software development by providing a "long-term memory" to AI models like GPT. With GPTCodeSync, you can synchronize your codebase with GPT for insightful coding assistance and faster project development.
+An example with the [results of the module](https://gist.github.com/slavafedoseev/67852cf2dcc6a2c2f4eb4c5867f32f5d)
 
 ## Features
 
