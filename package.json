@@ -1,0 +1,53 @@
+{
+  "name": "gptcodesync",
+  "version": "2.0.1",
+  "description": "GPTCodeSync: Enhance your development with AI-powered code synchronization and real-time GPT assistance.",
+  "main": "GPTCodeSync.js",
+  "type": "module",
+  "scripts": {
+    "start": "node GPTCodeSync.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slavafedoseev/GPTCodeSync.git"
+  },
+  "keywords": [
+    "gpt",
+    "openai",
+    "github",
+    "gists",
+    "code",
+    "synchronization",
+    "ai-powered",
+    "development",
+    "chatgpt",
+    "nodejs",
+    "code",
+    "collaboration",
+    "real-time",
+    "coding",
+    "assistance",
+    "ai",
+    "code",
+    "assistant",
+    "development",
+    "tool",
+    "programming",
+    "productivity",
+    "code",
+    "management",
+    "gpt",
+    "integration"
+  ],
+  "author": "Slava Fedoseev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slavafedoseev/GPTCodeSync/issues"
+  },
+  "homepage": "https://github.com/slavafedoseev/GPTCodeSync#readme",
+  "dependencies": {
+    "@octokit/core": "^5.0.1",
+    "clipboardy": "^4.0.0"
+  }
+}
