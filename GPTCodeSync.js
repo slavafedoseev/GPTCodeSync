@@ -165,7 +165,7 @@ async function main() {
     // Delete the identified files from Gist
     // Loop through each file in the 'filesToDelete' array and update it in the Gist with a null content, effectively removing it
     for (const file of filesToDelete) {
-        await updateSingleFileInGist(file, null);
+        await updateSingleFileInGist(file, "");
     }
 
     // Update the Gist with the new or modified files
