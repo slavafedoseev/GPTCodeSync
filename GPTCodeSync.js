@@ -4,6 +4,7 @@ import { Octokit } from '@octokit/core';
 import clipboardy from 'clipboardy';
 
 // Replace with your actual GitHub token and Gist ID
+
 const GITHUB_TOKEN = 'your_github_token';
 const GIST_ID = 'your_gist_id';
 const GIST_USERNAME = 'your_github_username';
@@ -67,7 +68,7 @@ async function updateSingleFileInGist(relativePath, content) {
             files
         });
 
-        console.log(`File ${filename} successfully updated:`, response.data.html_url);
+        console.log(`File ${filename} successfully updated`);
     } catch (error) {
         console.error(`Error updating file ${filename}:`, error.message);
         if (error.response) {
@@ -152,17 +153,25 @@ async function main() {
         files.unshift({ path: '000_project_structure.txt', content: projectStructure });
     }
 
+    // Retrieve the current files from Gist
     const existingGistFiles = await getExistingFilesInGist();
 
-    for (const file of files) {
-        await updateSingleFileInGist(file.path, file.content);
+    // Create an array of files to delete by filtering out files that are in the Gist but not in the 'files' array
+    // This step identifies the files that are no longer needed and should be removed from the Gist
+    const filesToDelete = existingGistFiles.filter(file => 
+        !files.some(f => transformPathToFilename(f.path) === file)
+    );
+
+    // Delete the identified files from Gist
+    // Loop through each file in the 'filesToDelete' array and update it in the Gist with a null content, effectively removing it
+    for (const file of filesToDelete) {
+        await updateSingleFileInGist(file, null);
     }
 
-    // Deleting absent files from Gist
-    for (const file of existingGistFiles) {
-        if (!files.some(f => transformPathToFilename(f.path) === file)) {
-            await updateSingleFileInGist(file, null);
-        }
+    // Update the Gist with the new or modified files
+    // Loop through each file in the 'files' array and update or add it to the Gist
+    for (const file of files) {
+        await updateSingleFileInGist(file.path, file.content);
     }
 
     console.log('File processing completed.');
